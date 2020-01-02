@@ -4,7 +4,7 @@
 
 (package-initialize)
 
-(load-theme 'manoj-dark t)
+(load-theme 'firebelly)
 
 (when (not package-archive-contents)
     (package-refresh-contents))
