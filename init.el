@@ -48,4 +48,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-load-file RET ~/.emacs.d/init.el)
+(load-file RET ~/.emacs.d/init.el)
