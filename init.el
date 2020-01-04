@@ -1,31 +1,10 @@
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-;;(add-to-list 'company-backends 'company-c-headers)
-
-;; Set up Melpa repository
-(require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (when no-ssl
-    (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+         '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 
 (load-theme 'firebelly t)
-
 
 (when (not package-archive-contents)
     (package-refresh-contents))
@@ -43,7 +22,6 @@ There are two things you can do about this warning:
 
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 
-
 (add-to-list 'load-path "~/.emacs.d/custom")
 
 (require 'setup-general)
@@ -54,6 +32,8 @@ There are two things you can do about this warning:
 ;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-editing)
+
+
 
 ;; function-args
 ;; (require 'function-args)
@@ -117,3 +97,5 @@ There are two things you can do about this warning:
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+
+(load-file RET ~/.emacs.d/init.el)
