@@ -15,14 +15,23 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+;(require 'company)
+;(add-hook 'after-init-hook 'global-company-mode)
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (setq speedbar-show-unknown-files t)
 
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 
 (add-to-list 'load-path "~/.emacs.d/custom")
+(add-to-list 'load-path "~/.emacs.d/page_break_lines")
+(require 'page-break-lines)
 
 (require 'setup-general)
 (if (version< emacs-version "24.4")
@@ -33,7 +42,21 @@
 (require 'setup-cedet)
 (require 'setup-editing)
 
+;; Set the title
+(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+;; Set the banner
+(setq dashboard-startup-banner  "~/.emacs.d/logo/emacs.png")
+;; Value can be
+;; 'official which displays the official emacs logo
+;; 'logo which displays an alternative emacs logo
+;; 1, 2 or 3 which displays one of the text banners
+;; "path/to/your/image.png" which displays whatever image you would prefer
 
+;; Content is not centered by default. To center, set
+(setq dashboard-center-content t)
+
+;; To disable shortcut "jump" indicators for each section, set
+(setq dashboard-show-shortcuts nil)
 
 ;; function-args
 ;; (require 'function-args)
@@ -97,5 +120,3 @@
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-
-(load-file RET ~/.emacs.d/init.el)
