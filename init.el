@@ -1,10 +1,11 @@
 (require 'package)
-(add-to-list 'package-archives
-         '("melpa" . "http://melpa.org/packages/") t)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+
 
 (package-initialize)
 
-(load-theme 'firebelly t)
+(load-file "~/.emacs.d/clarity.el")
 
 (when (not package-archive-contents)
     (package-refresh-contents))
@@ -15,8 +16,14 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;(require 'company)
-;(add-hook 'after-init-hook 'global-company-mode)
+(setq
+ ;; Use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+ )
+
 (use-package dashboard
   :ensure t
   :config
@@ -25,6 +32,9 @@
 (add-to-list 'load-path "~/.emacs.d/speedbar")
 (require 'sr-speedbar)
 
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,11 +42,12 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("88049c35e4a6cedd4437ff6b093230b687d8a1fb65408ef17bfcf9b7338734f6" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "12dd37432bb454355047c967db886769a6c60e638839405dad603176e2da366b" "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" "123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" "e1d09f1b2afc2fed6feb1d672be5ec6ae61f84e058cb757689edb669be926896" "a06658a45f043cd95549d6845454ad1c1d6e24a99271676ae56157619952394a" "939ea070fb0141cd035608b2baabc4bd50d8ecc86af8528df9d41f4d83664c6a" "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f" "4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" default)))
+    ("1f35dedbeacbfe9ed72810478836105b5617da67ca27f717a29bbb8087e8a1ba" "10551f0a24d0ac97a109f02178e9e34b448ee12a52357911cf3362a6b249cae6" "88049c35e4a6cedd4437ff6b093230b687d8a1fb65408ef17bfcf9b7338734f6" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "12dd37432bb454355047c967db886769a6c60e638839405dad603176e2da366b" "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" "123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" "e1d09f1b2afc2fed6feb1d672be5ec6ae61f84e058cb757689edb669be926896" "a06658a45f043cd95549d6845454ad1c1d6e24a99271676ae56157619952394a" "939ea070fb0141cd035608b2baabc4bd50d8ecc86af8528df9d41f4d83664c6a" "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f" "4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" default)))
+ '(global-linum-mode t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (nasm-mode darktooth-theme sublime-themes gruvbox-theme dashboard-hackernews visual-fill window-purpose telega zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu))))
+    (flatland-black-theme zprint-mode notes-mode arduino-mode bongo pdf-tools evil centaur-tabs nasm-mode darktooth-theme sublime-themes gruvbox-theme dashboard-hackernews visual-fill window-purpose telega zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu))))
 
 (setq speedbar-show-unknown-files t)
 
@@ -55,6 +66,8 @@
 (require 'setup-cedet)
 (require 'setup-editing)
 
+(add-to-list 'company-backends 'company-c-headers)
+
 ;; Set the title
 (setq dashboard-banner-logo-title "Love for assembly, love for C")
 ;; Set the banner
@@ -67,6 +80,14 @@
 
 ;; Content is not centered by default. To center, set
 (setq dashboard-center-content t)
+
+(require 'cc-mode)
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+
+(semantic-mode 1)
 
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
@@ -128,3 +149,5 @@
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 (global-semantic-idle-summary-mode 1)
+
+(sr-speedbar-open)
