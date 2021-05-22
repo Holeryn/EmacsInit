@@ -6,7 +6,8 @@ git clone https://github.com/startling/firebelly.git theme
 
 #Set up dashboard
 mkdir ~/.emacs.d/init.el/logo
-mv ~/Github/EmacsInit/logo/emacs.png ~/.emacs.d/logo/init.el
+cp ~/Github/EmacsInit/logo/emacs.png ~/.emacs.d/logo/
+
 #Set up the c-ide
 rm -rf ~/Documents/emacs_beckup/
 mkdir ~/Documents/emacs_beckup
