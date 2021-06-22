@@ -66,7 +66,7 @@
 (add-to-list 'company-backends 'company-c-headers)
 
 ;; Set the title
-(setq dashboard-banner-logo-title "Love for assembly, love for C")
+(setq dashboard-banner-logo-title "C++ is a badly designed and ugly language. It would be a shame to use it in Emacs. ~ RMS")
 ;; Set the banner
 (setq dashboard-startup-banner "~/.emacs.d/logo/emacs.png")
 ;; Value can be
