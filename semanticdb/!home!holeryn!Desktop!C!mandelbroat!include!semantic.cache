@@ -1,0 +1,117 @@
+;; Object semanticdb-project-database-file-157018815440
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-157018815440"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-15701881545c"
+      :major-mode c-mode
+      :tags 
+        '( ("GFX_H" variable (:constant-flag t) nil [508 513])
+            ("X11/Xlib.h" include (:system-flag t) nil [515 536])
+            ("unistd.h" include (:system-flag t) nil [537 556])
+            ("stdio.h" include (:system-flag t) nil [557 575])
+            ("stdlib.h" include (:system-flag t) nil [576 595])
+            ("string.h" include (:system-flag t) nil [596 615])
+            ("gfx_open" function
+               (:prototype-flag t
+                :pointer 1
+                :arguments 
+                  ( ("width" variable (:type "int") (reparse-symbol arg-sub-list) [670 680])
+                    ("height" variable (:type "int") (reparse-symbol arg-sub-list) [681 692])
+                    ("title" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [693 712]))                  
+                :type ("Display" type (:type "class") nil nil))
+                nil [651 713])
+            ("gfx_point" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("x" variable (:type "int") (reparse-symbol arg-sub-list) [759 765])
+                    ("y" variable (:type "int") (reparse-symbol arg-sub-list) [766 773]))                  
+                :type "void")
+                nil [743 774])
+            ("gfx_line" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("x1" variable (:type "int") (reparse-symbol arg-sub-list) [833 840])
+                    ("y1" variable (:type "int") (reparse-symbol arg-sub-list) [841 848])
+                    ("x2" variable (:type "int") (reparse-symbol arg-sub-list) [849 856])
+                    ("y2" variable (:type "int") (reparse-symbol arg-sub-list) [857 865]))                  
+                :type "void")
+                nil [818 866])
+            ("gfx_cube" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("x" variable (:type "int") (reparse-symbol arg-sub-list) [899 905])
+                    ("y" variable (:type "int") (reparse-symbol arg-sub-list) [906 912])
+                    ("width" variable (:type "int") (reparse-symbol arg-sub-list) [913 923])
+                    ("height" variable (:type "int") (reparse-symbol arg-sub-list) [924 935]))                  
+                :type "void")
+                nil [885 936])
+            ("gfx_color" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("red" variable (:type "int") (reparse-symbol arg-sub-list) [994 1002])
+                    ("green" variable (:type "int") (reparse-symbol arg-sub-list) [1003 1013])
+                    ("blue" variable (:type "int") (reparse-symbol arg-sub-list) [1014 1024]))                  
+                :type "void")
+                nil [978 1025])
+            ("gfx_clear" function
+               (:prototype-flag t
+                :type "void")
+                nil [1084 1101])
+            ("gfx_clear_color" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("red" variable (:type "int") (reparse-symbol arg-sub-list) [1168 1176])
+                    ("green" variable (:type "int") (reparse-symbol arg-sub-list) [1177 1187])
+                    ("blue" variable (:type "int") (reparse-symbol arg-sub-list) [1188 1198]))                  
+                :type "void")
+                nil [1146 1199])
+            ("gfx_wait" function
+               (:prototype-flag t
+                :type "char")
+                nil [1257 1273])
+            ("gfx_xpos" function
+               (:prototype-flag t
+                :type "int")
+                nil [1331 1346])
+            ("gfx_ypos" function
+               (:prototype-flag t
+                :type "int")
+                nil [1347 1362])
+            ("gfx_xsize" function
+               (:prototype-flag t
+                :type "int")
+                nil [1415 1431])
+            ("gfx_ysize" function
+               (:prototype-flag t
+                :type "int")
+                nil [1432 1448])
+            ("gfx_event_waiting" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("ch" variable
+                       (:pointer 1
+                        :type "unsigned char")
+                        (reparse-symbol arg-sub-list) [1515 1533]))                  
+                :type "int")
+                nil [1493 1534])
+            ("gfx_flush" function
+               (:prototype-flag t
+                :type "void")
+                nil [1583 1600]))          
+      :file "gfx.h"
+      :pointmax 1609
+      :fsize 1608
+      :lastmodtime '(24782 10817 28257 548000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("GFX_H")
+          )
+))
+  :file "!home!holeryn!Desktop!C!mandelbroat!include!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

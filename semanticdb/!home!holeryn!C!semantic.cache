@@ -1,0 +1,50 @@
+;; Object semanticdb-project-database-file-15635b581818
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-15635b581818"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-15635b5817d8"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [30 35]))                  
+                :type "int")
+                nil [21 598]))          
+      :file "acqua.c"
+      :pointmax 599
+      :fsize 599
+      :lastmodtime '(24088 46688 133788 889000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-15635b5817f8"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 18])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [30 35]))                  
+                :type "int")
+                nil [20 231]))          
+      :file "matteo.c"
+      :pointmax 232
+      :fsize 232
+      :lastmodtime '(24088 48686 577145 718000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-15635b581838"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [30 35]))                  
+                :type "int")
+                nil [21 133]))          
+      :file "cilcli.c"
+      :pointmax 134
+      :fsize 133
+      :lastmodtime '(24088 47728 433801 66000)
+      :unmatched-syntax nil))
+  :file "!home!holeryn!C!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

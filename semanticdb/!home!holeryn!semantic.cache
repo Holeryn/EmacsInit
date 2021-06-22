@@ -1,0 +1,23 @@
+;; Object semanticdb-project-database-file-1565a7624200
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-1565a7624200"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-1565a762421c"
+      :major-mode c-mode
+      :tags 
+        '( ("k" variable (:type "int") nil [14 16])
+            ("sin" function
+               (:prototype-flag t
+                :constructor-flag t
+                :type "double")
+                nil [16 45])
+            ("main" function (:type "int") nil [45 660]))          
+      :file "donut.c"
+      :pointmax 778
+      :fsize 777
+      :lastmodtime '(24568 50741 115692 405000)
+      :unmatched-syntax nil))
+  :file "!home!holeryn!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

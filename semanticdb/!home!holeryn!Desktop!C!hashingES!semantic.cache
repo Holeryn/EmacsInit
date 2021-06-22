@@ -1,0 +1,357 @@
+;; Object semanticdb-project-database-file-157c7f0692b8
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-157c7f0692b8"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-157c7f1691f8"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [125 143])
+            ("sys/stat.h" include (:system-flag t) nil [144 165])
+            ("fcntl.h" include (:system-flag t) nil [166 184])
+            ("unistd.h" include (:system-flag t) nil [185 204])
+            ("assert.h" include (:system-flag t) nil [205 224])
+            ("linked_list.h" include nil nil [226 250])
+            ("ReadLine.h" include nil nil [251 272])
+            ("LENGTH" variable (:constant-flag t) nil [304 310])
+            ("LENGTH" variable (:constant-flag t) nil [304 310])
+            ("LENGTH" variable (:constant-flag t) nil [304 310])
+            ("LENGTH" variable (:constant-flag t) nil [304 310])
+            ("Hash_map.h" include nil nil [273 294])
+            ("LENGTH" variable (:constant-flag t) nil [304 310])
+            ("FILE_NAME" variable (:constant-flag t) nil [322 331])
+            ("PAROLA" variable (:constant-flag t) nil [349 355])
+            ("hash" function
+               (:arguments 
+                  ( ("c" variable (:type "int") (reparse-symbol arg-sub-list) [374 380]))                  
+                :type "int")
+                nil [365 457])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [468 477])
+                    ("argv" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [478 490]))                  
+                :type "int")
+                nil [459 822]))          
+      :file "main.c"
+      :pointmax 823
+      :fsize 823
+      :lastmodtime '(24763 24141 549030 23000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-157c7f169218"
+      :major-mode c-mode
+      :tags 
+        '( ("linked_list.h" include nil nil [1 25])
+            ("create_list" function
+               (:arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [53 72]))                  
+                :type ("linked_list_t" type (:type "class") nil nil))
+                nil [27 155])
+            ("list_add" function
+               (:arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [180 199])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [200 208]))                  
+                :type ("linked_list_t" type (:type "class") nil nil))
+                nil [157 411])
+            ("read_all" function
+               (:arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [427 446]))                  
+                :type "void")
+                nil [413 603])
+            ("find" function
+               (:arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [614 633])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [633 641]))                  
+                :type "int")
+                nil [605 836]))          
+      :file "linked_list.c"
+      :pointmax 837
+      :fsize 836
+      :lastmodtime '(24763 22051 382338 516000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-157c7f169238"
+      :major-mode c-mode
+      :tags 
+        '( ("LINKED_LIST" variable (:constant-flag t) nil [29 40])
+            ("stdio.h" include (:system-flag t) nil [42 60])
+            ("stdlib.h" include (:system-flag t) nil [61 80])
+            ("string.h" include (:system-flag t) nil [81 100])
+            ("BUF_SIZE" variable (:constant-flag t) nil [110 118])
+            ("node" type
+               (:members 
+                  ( ("string" variable
+                       (:dereference 1
+                        :type "char")
+                        (reparse-symbol classsubparts) [140 162])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [165 183]))                  
+                :type "struct")
+                nil [125 186])
+            ("node_t" type
+               (:typedef ("node" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [188 215])
+            ("linked_list" type
+               (:members 
+                  ( ("length" variable (:type "int") (reparse-symbol classsubparts) [239 250])
+                    ("head" variable
+                       (:pointer 1
+                        :type ("node_t" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [253 266]))                  
+                :type "struct")
+                nil [217 269])
+            ("linked_list_t" type
+               (:typedef ("linked_list" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [271 312])
+            ("create_list" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [370 389]))                  
+                :type ("linked_list_t" type (:type "class") nil nil))
+                nil [344 390])
+            ("list_add" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [414 433])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [434 442]))                  
+                :type ("linked_list_t" type (:type "class") nil nil))
+                nil [391 443])
+            ("find" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [453 472])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [472 480]))                  
+                :type "int")
+                nil [444 481])
+            ("read_all" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("list" variable (:type ("linked_list_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [496 515]))                  
+                :type "void")
+                nil [482 516]))          
+      :file "linked_list.h"
+      :pointmax 599
+      :fsize 598
+      :lastmodtime '(24763 22042 809005 81000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("BUF_SIZE" . ((number "4096" 119 . 123)))
+          ("LINKED_LIST")
+          )
+)
+    (semanticdb-table "semanticdb-table-157c7f169258"
+      :major-mode c-mode
+      :tags 
+        '( ("READ_LINE" variable (:constant-flag t) nil [27 36])
+            ("sys/types.h" include (:system-flag t) nil [38 60])
+            ("Iread_line" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("fd" variable (:type "int") (reparse-symbol arg-sub-list) [310 317])
+                    ("line" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [318 329]))                  
+                :type "int")
+                nil [295 330]))          
+      :file "ReadLine.h"
+      :pointmax 338
+      :fsize 337
+      :lastmodtime '(24761 8177 747805 170000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("READ_LINE")
+          )
+)
+    (semanticdb-table "semanticdb-table-157c7f169278"
+      :major-mode c-mode
+      :tags 
+        '( ("ReadLine.h" include nil nil [1 22])
+            ("Iread_line" function
+               (:arguments 
+                  ( ("fd" variable (:type "int") (reparse-symbol arg-sub-list) [39 46])
+                    ("line" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [47 58]))                  
+                :type "int")
+                nil [24 353]))          
+      :file "ReadLine.c"
+      :pointmax 354
+      :fsize 353
+      :lastmodtime '(24763 20670 985655 482000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-157c7e9a4ba8"
+      :major-mode c-mode
+      :tags 
+        '( ("Hash_map.h" include nil nil [1 22])
+            ("create_hashmap" function
+               (:arguments 
+                  ( ("num" variable (:type "int") (reparse-symbol arg-sub-list) [47 55]))                  
+                :type ("HashMap" type (:type "class") nil nil))
+                nil [24 223])
+            ("add" function
+               (:arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [237 254])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [255 263])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [276 286]))                          
+                        :type "int")
+                        nil nil))                  
+                :type ("HashMap" type (:type "class") nil nil))
+                nil [225 412])
+            ("search" function
+               (:arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [425 442])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [443 451])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [464 474]))                          
+                        :type "int")
+                        nil nil))                  
+                :type "int")
+                nil [414 517])
+            ("print_entry" function
+               (:arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [536 553])
+                    ("entry" variable (:type "int") (reparse-symbol arg-sub-list) [554 564])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [577 587]))                          
+                        :type "int")
+                        nil nil))                  
+                :type "void")
+                nil [519 626]))          
+      :file "Hash_map.c"
+      :pointmax 627
+      :fsize 626
+      :lastmodtime '(24763 24164 432363 631000)
+      :unmatched-syntax '((close-paren 621 . 622) (semantic-list 605 . 618) (open-paren 584 . 585) (close-paren 583 . 584) (semantic-list 572 . 583) (semantic-list 565 . 572) (INT 561 . 564) (punctuation 559 . 560) (symbol 554 . 559) (INT 550 . 553) (punctuation 548 . 549) (symbol 540 . 548) (symbol 532 . 539) (open-paren 531 . 532) (symbol 520 . 531) (VOID 515 . 519) (close-paren 512 . 513) (semantic-list 495 . 507) (RETURN 475 . 481) (open-paren 471 . 472) (close-paren 470 . 471) (semantic-list 459 . 470) (semantic-list 452 . 459) (INT 448 . 451) (punctuation 446 . 447) (symbol 445 . 446) (punctuation 444 . 445) (CHAR 439 . 443) (punctuation 437 . 438) (symbol 429 . 437) (symbol 421 . 428) (open-paren 420 . 421) (symbol 414 . 420) (INT 410 . 413) (close-paren 407 . 408) (RETURN 390 . 396) (semantic-list 370 . 382) (punctuation 351 . 352) (close-paren 621 . 622) (semantic-list 605 . 618) (open-paren 584 . 585) (close-paren 583 . 584) (semantic-list 572 . 583) (semantic-list 565 . 572) (INT 561 . 564) (punctuation 559 . 560) (symbol 554 . 559) (INT 550 . 553) (punctuation 548 . 549) (symbol 540 . 548) (symbol 532 . 539) (open-paren 531 . 532) (symbol 520 . 531) (VOID 515 . 519) (close-paren 512 . 513) (semantic-list 495 . 507) (RETURN 475 . 481) (open-paren 471 . 472) (close-paren 470 . 471) (semantic-list 459 . 470) (semantic-list 452 . 459) (INT 448 . 451) (punctuation 446 . 447) (symbol 445 . 446) (punctuation 444 . 445) (CHAR 439 . 443) (punctuation 437 . 438) (symbol 429 . 437) (symbol 421 . 428) (open-paren 420 . 421) (symbol 414 . 420) (INT 410 . 413) (close-paren 407 . 408) (RETURN 390 . 396) (semantic-list 370 . 382) (punctuation 351 . 352)))
+    (semanticdb-table "semanticdb-table-157c7eb0c03c"
+      :major-mode c-mode
+      :tags 
+        '( ("HASH_MAP" variable (:constant-flag t) nil [26 34])
+            ("stdlib.h" include (:system-flag t) nil [36 55])
+            ("linked_list.h" include nil nil [57 81])
+            ("HashMap" type
+               (:typedef ("linked_list_t" type (:type "class") nil nil)
+                :pointer 1
+                :type "typedef")
+                nil [83 114])
+            ("search" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [288 305])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [306 314])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [327 337]))                          
+                        :type "int")
+                        nil nil))                  
+                :type "int")
+                nil [277 339])
+            ("add" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [389 406])
+                    ("s" variable
+                       (:pointer 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [407 415])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [428 438]))                          
+                        :type "int")
+                        nil nil))                  
+                :type ("HashMap" type (:type "class") nil nil))
+                nil [377 440])
+            ("create_hashmap" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("num" variable (:type "int") (reparse-symbol arg-sub-list) [504 512]))                  
+                :type ("HashMap" type (:type "class") nil nil))
+                nil [481 513])
+            ("print_entry" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("hash_map" variable (:type ("HashMap" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [565 582])
+                    ("entry" variable (:type "int") (reparse-symbol arg-sub-list) [583 593])
+                    ("hash" function
+                       (:function-pointer t
+                        :arguments 
+                          ( ("" variable
+                               (:constant-flag t
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [606 616]))                          
+                        :type "int")
+                        nil nil))                  
+                :type "void")
+                nil [548 618]))          
+      :file "Hash_map.h"
+      :pointmax 628
+      :fsize 627
+      :lastmodtime '(24763 24134 59029 934000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("HASH_MAP")
+          )
+))
+  :file "!home!holeryn!Desktop!C!hashingES!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

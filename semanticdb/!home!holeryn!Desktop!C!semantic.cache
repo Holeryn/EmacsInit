@@ -1,0 +1,102 @@
+;; Object semanticdb-project-database-file-1594bd23bdd4
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-1594bd23bdd4"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-1594bd23bd94"
+      :major-mode c-mode
+      :tags 
+        '( ("stack.h" include nil nil [1 19])
+            ("create" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [36 41]))                  
+                :type ("stack_t" type (:type "class") nil nil))
+                nil [21 154])
+            ("add" function
+               (:arguments 
+                  ( ("stack" variable (:type ("stack_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [168 182])
+                    ("n" variable (:type "int") (reparse-symbol arg-sub-list) [183 189]))                  
+                :type ("stack_t" type (:type "class") nil nil))
+                nil [156 361]))          
+      :file "stack.c"
+      :pointmax 362
+      :fsize 361
+      :lastmodtime '(24765 10105 769996 913000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table-1594bd23bdb4"
+      :major-mode c-mode
+      :tags 
+        '( ("STACK" variable (:constant-flag t) nil [23 28])
+            ("stddef.h" include (:system-flag t) nil [30 49])
+            ("stdlib.h" include (:system-flag t) nil [50 69])
+            ("stack" type
+               (:members 
+                  ( ("length" variable (:type "int") (reparse-symbol classsubparts) [87 98])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [101 119])
+                    ("last" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [122 140]))                  
+                :type "struct")
+                nil [71 143])
+            ("node" type
+               (:members 
+                  ( ("value" variable (:type "int") (reparse-symbol classsubparts) [160 170])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [173 191]))                  
+                :type "struct")
+                nil [145 194])
+            ("stack_t" type
+               (:typedef ("stack" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [196 225])
+            ("node_t" type
+               (:typedef ("node" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil)
+                :type "typedef")
+                nil [226 253]))          
+      :file "stack.h"
+      :pointmax 262
+      :fsize 261
+      :lastmodtime '(24765 10397 346650 679000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("STACK")
+          )
+)
+    (semanticdb-table "semanticdb-table-1594bd23bdf4"
+      :major-mode c-mode
+      :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [30 35]))                  
+                :type "int")
+                nil [21 259]))          
+      :file "negative_address.c"
+      :pointmax 260
+      :fsize 260
+      :lastmodtime '(24772 50382 244388 555000)
+      :unmatched-syntax nil))
+  :file "!home!holeryn!Desktop!C!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

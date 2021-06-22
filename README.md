@@ -1,5 +1,1 @@
-# EmacsInit
-My **personal** emacs setup script and Init.
-
-# for use it:
-$ bash setup.sh
+Emacs demo setup for C/C++ described here: http://tuhdo.github.io/c-ide.html

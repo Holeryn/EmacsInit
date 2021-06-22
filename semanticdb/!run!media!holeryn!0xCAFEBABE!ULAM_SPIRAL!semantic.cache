@@ -1,0 +1,74 @@
+;; Object semanticdb-project-database-file-1588bb010c94
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file-1588bb010c94"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table-1588bb010ca0"
+      :major-mode c-mode
+      :tags 
+        '( ("primes.h" include nil nil [1 20])
+            ("include/gfx.h" include nil nil [21 45])
+            ("SIZE" variable (:constant-flag t) nil [55 59])
+            ("PADDING" variable (:constant-flag t) nil [72 79])
+            ("FIRSTD" variable (:constant-flag t) nil [180 186])
+            ("SECONDD" variable (:constant-flag t) nil [216 223])
+            ("THIRDD" variable (:constant-flag t) nil [246 252])
+            ("QUADD" variable (:constant-flag t) nil [282 287])
+            ("DIRECTIONS" type
+               (:members 
+                  ( ("LEFT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [326 331])
+                    ("DOWN" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [331 336])
+                    ("RIGHT" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [336 342])
+                    ("UP" variable
+                       (:constant-flag t
+                        :type "int")
+                        (reparse-symbol enumsubparts) [342 345]))                  
+                :type "enum")
+                nil [310 346])
+            ("spiral" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [360 365]))                  
+                :type "void")
+                nil [348 366])
+            ("primes" variable
+               (:dereference 1
+                :typemodifiers ("static")
+                :type "int")
+                nil [400 426])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [437 442]))                  
+                :type "int")
+                nil [428 764])
+            ("spiral" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [778 783]))                  
+                :type "void")
+                nil [766 1624]))          
+      :file "Uspiral.c"
+      :pointmax 1625
+      :fsize 1624
+      :lastmodtime '(24701 16209 27854 100000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SIZE" . ((number "500" 60 . 63)))
+          ("PADDING" . ((number "150" 80 . 83)))
+          ("THIRDD" (spp-arg-list ("n") 252 . 255) . ((semantic-list "(4*n*n + 2*n + 1)" 256 . 273)))
+          ("QUADD" (spp-arg-list ("n") 287 . 290) . ((semantic-list "(4*n*n - 4*n + 1)" 291 . 308)))
+          ("SECONDD" (spp-arg-list ("n") 223 . 226) . ((semantic-list "(4*n*n + 1)" 226 . 237)))
+          ("FIRSTD" (spp-arg-list ("n") 186 . 189) . ((semantic-list "(4*n*n - 2*n + 1)" 190 . 207)))
+          )
+))
+  :file "!run!media!holeryn!0xCAFEBABE!ULAM_SPIRAL!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
