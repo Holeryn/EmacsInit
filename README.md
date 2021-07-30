@@ -1,5 +1,2 @@
-My **Personal** Emacs setup.
-
-If you want (i hope no) to use it, just copy the folder into ~/.emacs.d or run the comand 
-
-$ bash setup.sh
+My emacs dotfiles.
+I don't think you want to use it, anyway if so, just copy the repo into your ~/.emacs.d/ folder
