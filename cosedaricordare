@@ -1,0 +1,20 @@
+allora pare che su Debian stable non ci sono versioni sufficientemnte moderne di emacs per scaricare 
+corfu e forse anche gli altri pacchetti.
+
+qui trovi un moto per installare una versione piu' recente di emacs su stable:
+https://gist.github.com/zoliky/0445b20676bfa85450d7df006066ceb7
+
+EDITOR
+  Emacs ≥ 29 forse anche >28.X va bene (dove X è da determinare)
+  pacchetti da scaricare:
+  corfu (melpa)
+  eglot (melpa)
+  clangd-16 (apt)
+  global (apt)
+  pyright (pip)
+  orderless (pip)
+  marginalia (pip)
+  consult (pip)
+  embark (pip)
+  embark-consult (pip)
+  almost-mono-themes (melpa)

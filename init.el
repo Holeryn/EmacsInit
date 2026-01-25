@@ -1,100 +1,86 @@
-;; If this is the first time, you should install with melpa:
-;; 1) ggtags
-;; 2) company
+;; init.el — minimal Corfu + Eglot (C/C++/Python)
 
 (require 'package)
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
-(load-file "~/.emacs.d/themes/clarity.el")
-
-(when (not package-archive-contents)
-    (package-refresh-contents))
-
+;; use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(setq
- ;; Use gdb-many-windows by default
- gdb-many-windows t
+;; -----------------------
+;; Completion UI: Corfu
+;; -----------------------
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.0)
+  (corfu-cycle t)
+  (corfu-max-candidates 20)
+  :bind
+  (:map corfu-map
+        ("C-n" . corfu-next)
+        ("C-p" . corfu-previous)
+        ("TAB" . corfu-insert)))
 
- ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
- )
+;; Emacs completion behavior
+(use-package emacs
+  :custom
+  (tab-always-indent 'complete)
+  (completion-cycle-threshold 3)
+  (read-extended-command-predicate
+   #'command-completion-default-include-p))
 
-(use-package dashboard
-  :ensure t
+;; -----------------------
+;; LSP: Eglot
+;; -----------------------
+(use-package eglot
+  :hook ((c-mode c++-mode python-mode) . eglot-ensure)
   :config
-  (dashboard-setup-startup-hook))
+  ;; Usa clangd-16 per C/C++
+  (add-to-list 'eglot-server-programs
+               '((c-mode c++-mode) . ("clangd-16"))))
 
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+;; -----------------------
+;; Diagnostics
+;; -----------------------
+(use-package flymake)
 
+;; -----------------------
+;; Python (builtin)
+;; -----------------------
+(use-package python)
+
+(use-package exec-path-from-shell
+  :if (memq window-system '(x pgtk wayland))
+  :config
+  (exec-path-from-shell-initialize))
+
+;; -----------------------
+;; UI basics
+;; -----------------------
+(setq inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
+(global-display-line-numbers-mode t)
+
+(message "Emacs ready 🚀")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("1f35dedbeacbfe9ed72810478836105b5617da67ca27f717a29bbb8087e8a1ba" "10551f0a24d0ac97a109f02178e9e34b448ee12a52357911cf3362a6b249cae6" "88049c35e4a6cedd4437ff6b093230b687d8a1fb65408ef17bfcf9b7338734f6" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "12dd37432bb454355047c967db886769a6c60e638839405dad603176e2da366b" "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" "123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" "e1d09f1b2afc2fed6feb1d672be5ec6ae61f84e058cb757689edb669be926896" "a06658a45f043cd95549d6845454ad1c1d6e24a99271676ae56157619952394a" "939ea070fb0141cd035608b2baabc4bd50d8ecc86af8528df9d41f4d83664c6a" "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f" "4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" default))
- '(global-linum-mode t)
- '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   '(comment-dwim-2 helm-projectile helm-swoop projectile flatland-black-theme zprint-mode notes-mode arduino-mode bongo pdf-tools evil centaur-tabs nasm-mode darktooth-theme sublime-themes gruvbox-theme dashboard-hackernews visual-fill window-purpose telega zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
-
-(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
-
-(add-to-list 'load-path "~/.emacs.d/custom")
-(add-to-list 'load-path "~/.emacs.d/page_break_lines")
-(require 'page-break-lines)
-
-(require 'setup-general)
-(if (version< emacs-version "24.4")
-    (require 'setup-ivy-counsel)
-  (require 'setup-helm)
-  (require 'setup-helm-gtags))
-;; (require 'setup-ggtags)
-(require 'setup-cedet)
-(require 'setup-editing)
-
-(add-to-list 'company-backends 'company-c-headers)
-
-;; Set the title
-(setq dashboard-banner-logo-title "C++ is a badly designed and ugly language. It would be a shame to use it in Emacs. ~ RMS")
-;; Set the banner
-(setq dashboard-startup-banner "~/.emacs.d/logo/emacs.png")
-;; Value can be
-;; 'official which displays the official emacs logo
-;; 'logo which displays an alternative emacs logo
-;; 1, 2 or 3 which displays one of the text banners
-;; "path/to/your/image.png" which displays whatever image you would prefer
-
-;; Content is not centered by default. To center, set
-(setq dashboard-center-content t)
-
-(require 'cc-mode)
-(require 'semantic)
-
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-
-(semantic-mode 1)
-
-;; To disable shortcut "jump" indicators for each section, set
-(setq dashboard-show-shortcuts nil)
-
-;; function-args
-;; (require 'function-args)
-;; (fa-config-default)
-;; (define-key c-mode-map  [(tab)] 'company-complete)
-;; (define-key c++-mode-map  [(tab)] 'company-complete)
-
+   '(almost-mono-themes embark-consult embark consult marginalia orderless exec-path-from-shell projectile ggtags corfu)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -102,48 +88,38 @@
  ;; If there is more than one, they won't work right.
  )
 
-(require 'ggtags)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-              (ggtags-mode 1))))
 
-(define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
-(define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
-(define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
-(define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
-(define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
-(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+;; Almost Mono Black Theme
+(use-package almost-mono-themes
+  :ensure t
+  :config
+  ;; Carica subito la variante nera
+  (load-theme 'almost-mono-black t))
 
-(define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
+;; Barre nere / minimal setup
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
 
-(setq
- helm-gtags-ignore-case t
- helm-gtags-auto-update t
- helm-gtags-use-input-at-cursor t
- helm-gtags-pulse-at-cursor t
- helm-gtags-prefix-key "\C-cg"
- helm-gtags-suggested-key-mapping t
- )
+;; menu-bar colore personalizzato (solo GUI)
+(set-face-attribute 'menu-bar nil
+                    :background "#000000"
+                    :foreground "#ffffff")
 
-(setq company-backends (delete 'company-semantic company-backends))
-(define-key c-mode-map  [(tab)] 'company-complete)
-(define-key c++-mode-map  [(tab)] 'company-complete)
+;; mode-line
+(set-face-attribute 'mode-line nil
+                    :background "#000000"
+                    :foreground "#ffffff"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :background "#111111"
+                    :foreground "#888888"
+                    :box nil)
 
-(require 'helm-gtags)
-;; Enable helm-gtags-mode
-(add-hook 'dired-mode-hook 'helm-gtags-mode)
-(add-hook 'eshell-mode-hook 'helm-gtags-mode)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
-
-(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
-(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-
-(global-semantic-idle-summary-mode 1)
-(enable-theme 'clarity)
+;; header-line (se usato)
+(set-face-attribute 'header-line nil
+                    :background "#000000"
+                    :foreground "#ffffff"
+                    :box nil)(set-face-attribute 'menu-bar nil
+                    :background "#000000"
+                    :foreground "#ffffff")

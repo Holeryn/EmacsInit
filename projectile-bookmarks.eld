@@ -1,1 +1,1 @@
-("~/.emacs.d/")
+("~/GITHUB/numericalrecipes/" "~/.emacs.d/")
