@@ -18,3 +18,4 @@ EDITOR
   embark (pip)
   embark-consult (pip)
   almost-mono-themes (melpa)
+ symbol-overlay

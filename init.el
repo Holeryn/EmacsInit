@@ -41,6 +41,17 @@
   (read-extended-command-predicate
    #'command-completion-default-include-p))
 
+
+(use-package symbol-overlay
+  :hook (prog-mode . symbol-overlay-mode)
+  :bind
+  (("C-c s" . symbol-overlay-put)
+   ("C-c n" . symbol-overlay-switch-forward)
+   ("C-c p" . symbol-overlay-switch-backward)
+   ("C-c r" . symbol-overlay-rename)
+   ("C-c S" . symbol-overlay-remove-all)))
+
+
 ;; -----------------------
 ;; LSP: Eglot
 ;; -----------------------
